@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<data>
+    <header>
+        Education
+    </header>
+    <me_descruption_1>
+        I graduated 4 educational institutions, in which I studied programming (from 2014 to 2023 year).
+    </me_descruption_1>
+    <me_descruption_2>
+        You can read about every place where I studied (below &#128578;).
+    </me_descruption_2>
+    <degree>
+        Degree:
+    </degree>
+    <degree_nothing>
+        No degree
+    </degree_nothing>
+    <programme_subject_area>
+        Programme subject area:
+    </programme_subject_area>
+    <programme_subject_area_nothing>
+       No programme subject area
+    </programme_subject_area_nothing>
+    <years_of_study>
+        Years of study:
+    </years_of_study>
+    <programme_years_of_study_nothing>
+        No date
+    </programme_years_of_study_nothing>
+    <average_rating>
+        Average rating (in points):
+    </average_rating>
+    <average_rating_nothing>
+        No grades
+    </average_rating_nothing>
+    <place_of_study>
+        Plase of study:
+    </place_of_study>
+    <place_of_study_nothing>
+        No place of study
+    </place_of_study_nothing>
+        <button_move_to_diploma>
+        Go to photo diploma
+    </button_move_to_diploma>
+    <button_move_to_grades>
+        Go to grades
+    </button_move_to_grades>
+    <info_technology>
+        This page was written using XML as page data store
+    </info_technology>
+</data>

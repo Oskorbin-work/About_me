@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {{ Content_body.title }}
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="col py-2">
+        <div id="content" name="content" class="main">
+            <div class="row justify-content-center">
+                <div class="col-11">
+                    <h1 class="mt-2 text-center">
+                        {{ Content_body.data_json.header.name }}
+                    </h1>
+                    <hr class="mt-0 mb-4">
+                    <div>
+                        <section>
+                            <div class="container py-2">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="card mb-4">
+                                            <div class="card-body text-center">
+                                                <img src="{% static 'main_page/image/Me.jpg' %}" alt="avatar"
+                                                     class="rounded-circle img-fluid" style="width: 150px;">
+                                                <h5 class="my-3">{{ Content_body.data_json.avatar.first_name }} {{ Content_body.data_json.avatar.last_name }} </h5>
+                                                <p class="text-muted mb-1">{{ Content_body.data_json.avatar.job }}</p>
+                                                <p class="text-muted mb-1">{{ Content_body.data_json.avatar.geo }}</p>
+                                                <hr>
+                                                <p class="text-muted mb-3">polozyuk.ser.work@gmail.com</p>
+                                                <p class="text-muted mb-2">+38 (068) 734-0415</p>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-4 mb-lg-0">
+                                            <div class="card-body p-0">
+                                                <ul class="list-group list-group-flush rounded-3">
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                        <div class="container p-0">
+                                                            <div class="row">
+                                                                <div class="col-7">
+                                                                    <img src="{% static 'contact/image/logo_linkedl.png' %}"
+                                                                         alt="linkedl"
+                                                                         class="img-fluid" style="width: 25px;">
+                                                                </div>
+                                                                <div class="col-5">
+                                                                    <a href="https://www.linkedin.com/in/Oskorbin/">@Oskorbin</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                                        <div class="container p-0">
+                                                            <div class="row">
+                                                                <div class="col-7">
+                                                                    <img src="{% static 'contact/image/logo_telegram.png' %}"
+                                                                         alt="telegram"
+                                                                         class="img-fluid" style="width: 25px;">
+                                                                </div>
+                                                                <div class="col-5">
+                                                                    <a href="http://t.me/Oskorbin">@Oskorbin</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                                        <div class="container p-0">
+                                                            <div class="row">
+                                                                <div class="col-7">
+                                                                    <img src="{% static 'contact/image/logo_github.png' %}"
+                                                                         alt="linkedl"
+                                                                         class="img-fluid" style="width: 25px;">
+                                                                </div>
+                                                                <div class="col-5">
+                                                                    <a href="https://github.com/Oskorbin-work">Oskorbin-work</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                                                        <div class="container p-0">
+                                                            <div class="row">
+                                                                <div class="col-7">
+                                                                    <img src="{% static 'contact/image/logo_codewars.png' %}"
+                                                                         alt="linkedl"
+                                                                         class="img-fluid" style="width: 25px;">
+                                                                </div>
+                                                                <div class="col-5">
+                                                                    <a href="https://www.codewars.com/users/Oskorbin-work">Oskorbin-work</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-8">
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="card mb-4 mb-md-0">
+                                                    <div class="card-body">
+                                                        <h4 class="mb-3">
+                                                           {{ Content_body.data_json.contact_me.header }}
+                                                        </h4>
+                                                        <form method="post">
+                                                            {% csrf_token %}
+                                                            <!--{{ form|crispy }}-->
+                                                            <p class="mb-2 mt-2">{{ Content_body.data_json.contact_me.first_name }}*</p>
+                                                            {{ form.first_name }}
+                                                            <p class="mb-2 mt-2">{{ Content_body.data_json.contact_me.last_name }}*</p>
+                                                            {{ form.last_name }}
+                                                            <p class="mb-2 mt-2">{{ Content_body.data_json.contact_me.email }}*</p>
+                                                            {{ form.email_address }}
+                                                            <p class="mb-2 mt-2">{{ Content_body.data_json.contact_me.message }}*</p>
+                                                            {{ form.message }}
+                                                            <button class="btn btn-primary mt-4 mb-3" type="submit"
+                                                                    id="Button_Login">
+                                                                {{ Content_body.data_json.contact_me.button }}
+                                                            </button>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <sub class="text-secondary">
+                {{ Content_body.data_json.header.info_technology }}
+            </sub>
+
+
+        </div>
+    </div>
+{% endblock %}

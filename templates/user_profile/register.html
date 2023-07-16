@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+ {{ Content_body.title }}
+{% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+        <div class="col">
+            <div id="content" name="content" class="main">
+                <div class="row justify-content-center">
+                    <div class="col-11">
+                        <h1 class=" text-center"> {{ Content_body.title }}</h1>
+                        <hr class="mb-0">
+                        <!--Register-->
+                        <div class="container py-5">
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ register_form|crispy }}
+                                <button class="btn btn-primary" id="Button_Register" type="submit" >
+                                    <!-- Data in base/static/register/js/data -->
+                                </button>
+                            </form>
+                            <p class="text-center" id="Nope_Account">
+                                <!-- Data in base/static/register/js/data -->
+                                <a href="{%url login%}user/login/" id="Link_Login">
+                                    <!-- Data in base/static/register/js/data -->
+                                </a>
+                                <!-- Data in base/static/register/js/data -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+{%  block link_js %}
+    <script type="text/javascript" src="{% static "" %}{{content_data}}"> </script>
+    <script type="text/javascript" src="{% static "user_profile/register/data/general.js" %}"> </script>
+{% endblock %}

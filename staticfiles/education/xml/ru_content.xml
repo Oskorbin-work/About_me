@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<data>
+    <header>
+        Образование
+    </header>
+    <me_descruption_1>
+        Я учился в 4 учебных заведениях, в которых меня обучали программированию, с 2014 по 2023 год.
+    </me_descruption_1>
+    <me_descruption_2>
+        Ознакомиться с каждым моим образованием можно внизу &#128578;
+    </me_descruption_2>
+    <degree>
+        Степень:
+    </degree>
+    <degree_nothing>
+        Нет степени
+    </degree_nothing>
+    <programme_subject_area>
+        Специальность:
+    </programme_subject_area>
+    <programme_subject_area_nothing>
+        Нету специальности
+    </programme_subject_area_nothing>
+    <years_of_study>
+        Годы обучения:
+    </years_of_study>
+    <programme_years_of_study_nothing>
+        Не указана дата
+    </programme_years_of_study_nothing>
+    <average_rating>
+        Средняя оценка (в баллах):
+    </average_rating>
+    <average_rating_nothing>
+        Нет оценок
+    </average_rating_nothing>
+    <place_of_study>
+        Место учебы:
+    </place_of_study>
+    <place_of_study_nothing>
+        Не указано место учебы
+    </place_of_study_nothing>
+    <button_move_to_diploma>
+        Перейти к фото диплома
+    </button_move_to_diploma>
+    <button_move_to_grades>
+        Перейти к оценкам
+    </button_move_to_grades>
+    <info_technology>
+        Данная страничка написана с использованием XML как хранилище данных страницы
+    </info_technology>
+</data>

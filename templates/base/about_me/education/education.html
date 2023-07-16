@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load sometag %}
+
+{% block title %}
+ {{ Content_body.title }}
+{% endblock %}
+
+{%  block link_css %}
+   <link rel="stylesheet" href="{% static 'education/css/body.css' %}">
+{% endblock %}
+
+{% block content %}
+        <div class="col">
+            <div id="content" name="content" class="main">
+                <div class="row justify-content-center">
+                    <div class="col-11">
+                        <h1 class=" text-center">{{ content_data.header }}</h1>
+                        <hr class="mb-0">
+                        <div class="container py-4 px-4">
+                            <div class="row py-2 px-2">
+                                <p class="mb-1">{{ content_data.me_descruption_1 }} </p>
+                                <p class="mb-1">{{ content_data.me_descruption_2 }} </p>
+                            </div>
+
+                            <div class="row align-items-center">
+                                {% for parametres in educations.all%}
+                                    <div class=" col-3 ">
+                                       <div class="card border-0 text-center">
+                                           <h5 class="card-title"> {{ parametres.name}}</h5>
+                                       </div>
+                                    </div>
+                                {% empty %}
+                                    Not educations
+                                {% endfor %}
+                            </div>
+                            <div class="row align-items-center">
+                                {% for parametres in educations.all%}
+                                    <div class=" col-3 ">
+                                       <div class="card border-0 text-center">
+                                           <div class="card-body">
+                                               <ul class="list-group ">
+                                                   <li class="list-group-item education_li ">
+                                                       <div>
+                                                           <b>{{ content_data.degree}}</b>
+                                                           <br>
+                                                           {% if parametres.degree %}
+                                                               {{ parametres.degree}}
+                                                           {% else %}
+                                                               {{ content_data.degree_nothing}}
+                                                           {% endif %}
+                                                       </div>
+                                                   </li>
+                                                   <li class="list-group-item education_li">
+                                                       <div>
+                                                           <b>{{ content_data.programme_subject_area}}</b>
+                                                           <br>
+                                                           {% if parametres.specialty %}
+                                                               {{ parametres.specialty }}
+                                                           {% else %}
+                                                               {{ content_data.programme_subject_area_nothing}}
+                                                           {% endif %}
+                                                       </div>
+                                                   </li>
+                                                   <li class="list-group-item education_li">
+                                                       <div>
+                                                            <b>{{ content_data.years_of_study}}</b>
+                                                            <br>
+                                                           {% if parametres.learn_start %}
+                                                               {{ parametres.learn_start|date:'m.Y'}}
+                                                           {% else %}
+                                                               {{ content_data.programme_years_of_study_nothing}}
+                                                           {% endif %}
+                                                           {% if parametres.learn_end %}
+                                                               - {{ parametres.learn_end|date:'m.Y'}}
+                                                           {% else %}
+                                                               {{ content_data.programme_years_of_study_nothing}}
+                                                           {% endif %}
+
+                                                       </div>
+                                                   </li>
+                                                   <li class="list-group-item education_li">
+                                                       <div>
+                                                           <b>{{ content_data.average_rating}}</b>
+                                                           <br>
+                                                           {% if parametres|grades_average %}
+                                                                {{ parametres|grades_average}}/{{ parametres.max_amount }}
+
+                                                           {% else %}
+                                                               {{ content_data.average_rating_nothing}}
+                                                           {% endif %}
+                                                       </div>
+                                                   </li>
+                                                   <li class="list-group-item education_li">
+                                                       <div>
+                                                           <b>{{ content_data.place_of_study}}</b>
+                                                           <br>
+                                                           {% if parametres.city %}
+                                                               {{ parametres.city}},
+                                                           {% else %}
+                                                               {{ content_data.place_of_study_nothing}}
+                                                           {% endif %}
+                                                           {% if parametres.country %}
+                                                               {{ parametres.country}}
+                                                           {% else %}
+                                                               {{ content_data.place_of_study_nothing}}
+                                                           {% endif %}
+
+                                                       </div>
+                                                   </li>
+                                               </ul>
+                                           </div>
+                                       </div>
+                                    </div>
+                                    {% empty %}
+                                    Not educations
+                                {% endfor %}
+                            </div>
+                            <div class="row ">
+                                {% for parametres in educations.all%}
+                                    <div class=" col-3 ">
+                                               <ul class="list-group">
+                                                   <li class="list-group-item border-0 d-grid gap-2">
+                                                       <a href="{{ parametres.url_to_photo_diploma }}" class="btn button_education">
+                                                           {{ content_data.button_move_to_diploma}}
+                                                       </a>
+                                                   </li>
+                                                   <li class="list-group-item border-0 d-grid gap-2">
+                                                       <a href="{% url 'education' parametres.id %}" class="btn button_education">
+                                                           {{ content_data.button_move_to_grades}}
+                                                       </a>
+                                                   </li>
+                                               </ul>
+                                    </div>
+                                    {% empty %}
+                                    Not educations
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <sub class="text-secondary">
+                {{ content_data.info_technology}}
+            </sub>
+        </div>
+
+{% endblock %}

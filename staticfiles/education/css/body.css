@@ -1,0 +1,25 @@
+.content_education {
+	line-height: 100%;
+    color: #417690 !important;
+}
+
+.education_li {
+      overflow: hidden;
+  display: table;
+height: 5.5em;
+}
+
+.education_li > div {
+  display: table-cell;
+  vertical-align: middle;
+  float:none;
+}
+
+a.list-group-item {
+  overflow: hidden;
+  display: table;
+}
+
+.button_education{
+    background-color: #95A5A6 !important;
+}

@@ -1,0 +1,122 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> {% block title %} {% endblock %} </title>
+
+
+    {% load bootstrap5 %}
+
+    {% bootstrap_css %}
+
+    {% bootstrap_javascript %}
+
+    {% bootstrap_messages %}
+
+    {% load bootstrap_icons %}
+
+    {% block link_css %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'base/css/menu.css' %}">
+
+
+    {% get_current_language as CURRENT_LANGUAGE %}
+    {% get_available_languages as AVAILABLE_LANGUAGES %}
+    {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <span class="fs-5 d-none d-sm-inline">
+                        {{ Base.name_menu }}
+                    </span>
+                <ul class="nav nav-pills flex-column align-items-center align-items-sm-start" id="menu">
+                    {% for level_1 in Base.menu_one.all %}
+                        <li class="nav-item">
+                            {% if level_1.menu_two.all %}
+                                <a href="" class="nav-link px-0 align-middle ">
+                            {% else %}
+                                {% url level_1.address as the_url %}
+                                {% if the_url in request.path %}
+                                    <a href="{% url level_1.address %}"
+                                       class="active-link nav-link px-0 align-middle text-warning">
+                                {% else %}
+                                    <a href="{% url level_1.address %}" class="nav-link px-0 align-middle">
+                                {% endif %}
+                            {% endif %}
+                            <i class="fs-4 bi-speedometer2"></i>
+                            <span class="ms-1 d-none d-sm-inline ">
+                                    {{ level_1 }}
+                                </span>
+                            </a>
+                        </li>
+                        <ul class=" nav flex-column ms-1 " id="submenu{{ level_1.id }}" data-bs-parent="#menu">
+                            {% for level_2 in level_1.menu_two.all %}
+                                <li class="w-100">
+                                    {% url level_2.address as the_url %}
+                                    {% if the_url in request.path %}
+                                        <a href="{% url level_2.address %}" class="active-link nav-link px-10 ">
+                                            {{ level_2.name }}
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url level_2.address %}" class="nav-link px-10">
+                                            {{ level_2.name }}
+                                        </a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                    <li>
+                            <span class="ms-1 d-none d-sm-inline">
+                                <select class="selectpicker form-select bg-dark text-white text-decoration-none"
+                                        data-width="fit" onchange="location = this.value;">
+                                    {% for language in languages %}
+                                        <option
+                                                {% if language.code == CURRENT_LANGUAGE %} selected{% endif %}
+                                                                                           value="/{{ language.code }}/{{ get_last_url }}/">
+                                            {{ language.name_local }} </option>
+                                    {% endfor %}
+                                </select>
+                            </span>
+                    </li>
+                    <li>
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link px-0 align-middle " href="{% url logout %}user/logout/"
+                                   id="Link_Logout_Base">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-0 align-middle" id="Login_Welcome"
+                                   href="{% url profile %}user/profile/{{ user.username }}/">, {{ user.first_name }} {{ user.last_name }}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link px-0 align-middle " href="{% url login %}user/login/"
+                                   id="Link_Login_Base">
+                                </a>
+                            </li>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</div>
+</div>
+
+{% block sidebar %}<!-- insert default navigation text for every page -->{% endblock %}
+
+{% block link_js %} {% endblock %}
+<script type="text/javascript" src="{% static "" %}{{ base_data }}"></script>
+<script type="text/javascript" src="{% static "base/js/data/general.js" %}"></script>
+</body>
+</html>

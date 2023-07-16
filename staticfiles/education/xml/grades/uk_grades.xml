@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<data>
+    <sub_header>
+        Таблиця оцінок
+    </sub_header>
+    <table_column_1>
+        Номер
+    </table_column_1>
+    <table_column_2>
+        НАЗВА ОСВІТНОГО КОМПОНЕНТА АБО РЕЗУЛЬТАТІВ НАВЧАННЯ
+    </table_column_2>
+    <table_column_3>
+        Оцінка
+    </table_column_3>
+    <table_column_4>
+        Коментар
+    </table_column_4>
+    <average_grade_text>
+        Середня оцінка
+    </average_grade_text>
+    <average_grade_commentary>
+        Без оцінки дипломного проєкта
+    </average_grade_commentary>
+    <comment_diploma>
+        Дипломний проєкт
+    </comment_diploma>
+    <info_technology>
+        Ця сторінка написана з використанням XML як сховище даних сторінки
+    </info_technology>
+</data>

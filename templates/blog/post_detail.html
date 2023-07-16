@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {{ object.title }}
+{% endblock %}
+{% load usertag %}
+
+
+{% block link_css %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'posts/css/post_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="col">
+        <div id="content" name="content" class="main">
+            <div class="row justify-content-center">
+                <div class="col-11">
+                    <h1 class="post-title text-center">
+                        {{ object.title }}
+                    </h1>
+                    <hr class="mb-0">
+                    <a class="post_list" href="{% url 'post_list' %} ">
+                        <div class="fa fa-home"></div>
+                    </a>
+                    > {{ object.title }}
+                    <div class="container py-4 px-4">
+                        <div class="row">
+                            <img src="{{ object.img_main.url }}" alt="no"/>
+                        </div>
+                        <div class="blog-post-inner" style="padding-top: 458.82px;">
+                            <div class="row post-sub-title">
+                                <h3 class="text-center">
+                                    {% for tag in object.tags.all %}
+                                        {{ tag }}
+                                        {% if not forloop.last %}
+                                            ,
+                                        {% endif %}
+                                    {% endfor %}
+                                </h3>
+                            </div>
+                            <div class="row post-author">
+                                <h5 class="text-center">
+                                    {{ object.author.first_name }} {{ object.author.last_name }}
+                                </h5>
+                            </div>
+                            <div class="row justify-content-center">
+                                {% autoescape on %}
+                                    <div class="post-content">
+                                        {{ object.body|safe }}
+
+                                    </div>
+                                {% endautoescape %}
+                            </div>
+                            <div class="row justify-content-center">
+                                <p class="post-date"> {{ object.data_published|date:"m.d.Y" }} </p>
+                            </div>
+                        </div>
+                    </div>
+                    <sub class="text-secondary">
+                        {{ post_data.info_technology }}
+                    </sub>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

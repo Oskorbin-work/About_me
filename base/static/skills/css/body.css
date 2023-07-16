@@ -1,0 +1,57 @@
+.card_box {
+     padding: 10px;
+     text-align: center;
+     -moz-user-select: -moz-none;
+     -o-user-select: none;
+     -khtml-user-select: none;
+     -webkit-user-select: none;
+     user-select: none;
+
+}
+
+.card_skill
+{
+     position: relative;
+     overflow:hidden;
+     border-radius: 10%;
+     box-shadow: 4px 4px 4px #232323;
+    background: linear-gradient(90deg, rgb(210, 210, 210) 50%, rgba(231, 231, 233, 1) 85%);
+
+     display: inline-block !important;
+     margin: 7px;
+     width: 160px;
+     vertical-align: top;
+}
+.card_front, .card_back {
+    width: 100%;
+    float:left;
+    transition: all 0.5s;
+}
+
+.card_skill:hover .card_front  {
+    margin-left:-300px;
+}
+.card_back {
+     margin-top: 0px;
+    font-size: small;
+    margin-left:-500px;
+}
+.card_skill:hover .card_back {
+     margin-left: 0;
+}
+
+.skill_name
+{
+    text-align: center;
+     margin-top: 11px;
+}
+
+.card_hr{
+        box-shadow: 4px 0px 4px black;
+}
+
+.Description_skill, .Title_projeсts
+{
+    font-size: small;
+    margin: 0;
+}

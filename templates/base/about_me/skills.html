@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+ {{ Content_body.title }}
+{% endblock %}
+
+{%  block link_css %}
+   <link rel="stylesheet" href="{% static 'skills/css/body.css' %}">
+{% endblock %}
+
+{% block content %}
+
+        <div class="col">
+            <div id="content" name="content" class="main">
+                <div class="row justify-content-center">
+                    <div class="col-11">
+                        <h1 class="text-center" id="Article">
+                             <!-- Data in base/static/skills/js/data -->
+                        </h1>
+                        <hr class="mb-0">
+                            <div class="container py-4 px-4">
+                                <div class="row" id="Description_text">
+                                    <!-- Data in base/static/skills/js/data -->
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 cards_skill" onclick="myFunction()">
+                                        {% for type in skills_type%}
+                                            <h4 class=" text-center py-2">{{ type}}</h4>
+                                            {% for skill in skills%}
+                                                {% if skill.type_skill == type%}
+                                                    <div class = "card_skill">
+                                                        <!--Front side-->
+                                                        <div class = "card_box card_front" id = "card_front_{{ skill.id }}">
+                                                            <div class = "card_front_img"> <img   width="100%" height="130" src="{{ skill.img.url }}"></div>
+                                                            <div class = "skill_name"> {{ skill.name }} </div>
+                                                        </div>
+                                                        <!--Back side-->
+                                                        <div class = "card_box card_back" id = "card_back_{{ skill.id }}">
+                                                            <h6 class = "Description_skill">
+                                                                    <!-- Data in base/static/skills/js/data -->
+                                                                </h6>
+                                                            <div class = "skill_description"> {{ skill.description }}</div>
+                                                            <div>
+                                                                <h6 class = "Title_projeсts">
+                                                                    <!-- Data in base/static/skills/js/data -->
+                                                                </h6>
+                                                                {% for project in skill.projects_skill.all%}
+                                                                    – <a href="{{ project.link }}" target="_blank">{{ project}}</a>
+                                                                    <br>
+                                                                {% empty %}
+                                                                    <div class = "Empty_project">
+                                                                     <!-- Data in base/static/skills/js/data -->
+                                                                    </div>
+                                                                {% endfor %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-secondary" id="Info_page">
+                <!-- Data in base/static/skills/js/data -->
+            </div>
+        </div>
+
+{% endblock %}
+
+{%  block link_js %}
+    <script type="text/javascript" src="{% static "" %}{{content_data}}"> </script>
+     <script type="text/javascript" src="{% static "skills/js/data/general.js" %}"> </script>
+
+{% endblock %}

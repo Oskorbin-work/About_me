@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<data>
+    <sub_header>
+        Таблица оценок
+    </sub_header>
+    <table_column_1>
+        Номер
+    </table_column_1>
+    <table_column_2>
+       НАЗВАНИЕ ОБРАЗОВАТЕЛЬНОГО КОМПОНЕНТА ИЛИ РЕЗУЛЬТАТОВ ОБУЧЕНИЯ
+    </table_column_2>
+    <table_column_3>
+        Оценка
+    </table_column_3>
+    <table_column_4>
+        Комментарий
+    </table_column_4>
+    <average_grade_text>
+        Средняя оценка
+    </average_grade_text>
+    <average_grade_commentary>
+        Без оценки дипломного проекта
+    </average_grade_commentary>
+    <comment_diploma>
+        Дипломный проект
+    </comment_diploma>
+    <info_technology>
+        Данная страничка написана с использованием XML как хранилище данных страницы
+    </info_technology>
+</data>

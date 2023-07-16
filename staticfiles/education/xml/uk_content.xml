@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<data>
+    <header>
+        Освіта
+    </header>
+    <me_descruption_1>
+        Я навчався у 4 навчальних закладах, де мене навчали програмуванню, з 2014 по 2023 рік.
+    </me_descruption_1>
+    <me_descruption_2>
+        Ознайомитись з кожною моєю освітою можна внизу &#128578;
+    </me_descruption_2>
+    <degree>
+        Ступінь:
+    </degree>
+    <degree_nothing>
+        Немає ступеню
+    </degree_nothing>
+    <programme_subject_area>
+        Спеціальність:
+    </programme_subject_area>
+    <programme_subject_area_nothing>
+        Немає спеціальності
+    </programme_subject_area_nothing>
+    <years_of_study>
+        Роки навчання:
+    </years_of_study>
+    <programme_years_of_study_nothing>
+        Не вказана дата
+    </programme_years_of_study_nothing>
+    <average_rating>
+        Середня оцінка (у балах):
+    </average_rating>
+    <average_rating_nothing>
+       Немає оцінок
+    </average_rating_nothing>
+    <place_of_study>
+        Місце навчання:
+    </place_of_study>
+    <place_of_study_nothing>
+        Не вказано місце навчання
+    </place_of_study_nothing>
+        <button_move_to_diploma>
+        Перейти до фото диплома
+    </button_move_to_diploma>
+    <button_move_to_grades>
+        Перейти до оцінок
+    </button_move_to_grades>
+    <info_technology>
+        Ця сторінка написана з використанням XML як сховище даних сторінки
+    </info_technology>
+</data>

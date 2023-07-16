@@ -1,0 +1,7 @@
+.active-link:hover {
+    filter: brightness(50%) !important;
+}
+
+.active-link {
+    color: #ffc107 !important;
+}

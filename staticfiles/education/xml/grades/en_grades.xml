@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<data>
+    <sub_header>
+        Table of grades
+    </sub_header>
+    <table_column_1>
+        NUMBER
+    </table_column_1>
+    <table_column_2>
+        COMPONENT TITLE OR LEARNING OUTCOME
+    </table_column_2>
+    <table_column_3>
+        POINT
+    </table_column_3>
+    <table_column_4>
+        COMMENTARY
+    </table_column_4>
+    <average_grade_text>
+        Average rating
+    </average_grade_text>
+    <average_grade_commentary>
+        Without assessment of the thesis project
+    </average_grade_commentary>
+    <comment_diploma>
+        Thesis project
+    </comment_diploma>
+    <info_technology>
+        This page is written using XML as page data store
+    </info_technology>
+</data>

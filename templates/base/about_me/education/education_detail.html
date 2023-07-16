@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+ {{ Content_body.title }}/{{ Education.object.name }}
+{% endblock %}
+
+{%  block link_css %}
+    <link rel="stylesheet" href="{% static 'education/css/grades.css' %}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% endblock %}
+
+{% block content %}
+    <div class="col">
+        <div id="content" name="content" class="main">
+            <div class="row justify-content-center">
+                <div class="col-11">
+                    <h2 class=" text-center"> {{ Education.object.name }} </h2>
+                    <h3 class="grades_h4 text-center">    {{ content_data.sub_header }}</h3>
+                    <hr class="mb-0">
+                    <div class = "container path-to-main-subpage py-1 px-1">
+                        <a href = "{% url 'about_me_education'%}">
+                            <div class="fa fa-home">
+                            </div></a>
+                        > {{Education.object}}
+                    </div>
+                    <div class="container_grades container py-4 px-4 ">
+                        <ul class="responsive-table">
+                            <li class="table-header text-center">
+                                <div class="col col-1">{{ content_data.table_column_1 }}</div>
+                                <div class="col col-2">{{ content_data.table_column_2 }}</div>
+                                <div class="col col-3">{{ content_data.table_column_3 }} ({{ Education.object.max_amount }})</div>
+                                <div class="col col-4">{{ content_data.table_column_4 }}</div>
+                            </li>
+                            {% if Education.object.name_diploma_project %}
+                            <li class="table-row grades_container">
+                                <div class="col col-1 text-center "></div>
+                                <div class="col col-2">{{ Education.object.name_diploma_project }}</div>
+                                <div class="col col-3 text-center ">{{ Education.object.grade_diploma_project }}</div>
+                                <div class="col col-4">{{ content_data.comment_diploma }}</div>
+                            </li>
+                        {% endif %}
+                            <li class="table-row grades_container">
+                                <div class="col col-1 text-center "> </div>
+                                <div class="col col-2">{{ content_data.average_grade_text }}</div>
+                                <div class="col col-3 text-center ">{{ grades_average }}</div>
+                                <div class="col col-4">{{ content_data.average_grade_commentary }}</div>
+                            </li>
+                            <hr class="mb-4">
+                            {% for grade in  grades %}
+                                <li class="table-row grades_container">
+                                    <div class="col col-1 text-center "> {{ forloop.counter }}</div>
+                                    <div class="col col-2">{{ grade.name}}</div>
+                                    <div class="col col-3 text-center ">{{ grade.amount}}</div>
+                                    <div class="col col-4">{{ grade.commentary}}</div>
+                                </li>
+                            {% empty %}
+                                No grades
+                            {% endfor %}
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <sub class="text-secondary">
+            {{ content_data.info_technology }}
+        </sub>
+    </div>
+{% endblock %}

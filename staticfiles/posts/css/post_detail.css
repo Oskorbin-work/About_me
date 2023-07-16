@@ -1,0 +1,52 @@
+.post-image{
+    width: 650px !important;
+    height: 650px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*change the number below to scale to the appropriate size*/
+
+tag {
+        margin: 25px 0px 0px 0px;
+}
+
+
+.post-title {
+    margin: 0px 0px 0px 0px;
+}
+
+.post-excerpt {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 1.125rem;
+}
+
+a.post_list {
+    text-decoration: none !important;
+}
+
+.blog-post-inner {
+    padding-top: 52px !important;
+}
+
+.post-sub-title, .post-author {
+    font-size: 1.125rem;
+    text-transform: uppercase;
+}
+
+.post-author {
+    margin-bottom: 25px;
+}
+
+.post-content{
+    width: 850px !important;
+    display: block;
+    text-align: justify;
+}
+
+.post-date{
+    width: 900px !important;
+    display: block;
+    text-align: justify;
+}

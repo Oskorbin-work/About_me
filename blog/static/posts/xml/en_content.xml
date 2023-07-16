@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<data>
+    <title_page>Blog</title_page>
+    <first_page>
+        First page
+    </first_page>
+    <last_page>
+        Last page
+    </last_page>
+    <info_technology>
+        This page was written using XML as page data store
+    </info_technology>
+    <not_post>
+        There aren't posts(
+    </not_post>
+</data>
