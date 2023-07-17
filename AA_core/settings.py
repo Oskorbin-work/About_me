@@ -179,8 +179,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django_ses.SESBackend'
-AWS_ACCESS_KEY_ID = AA_core.secret.AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY = AA_core.secret.AWS_SECRET_ACCESS_KEY
-AWS_SES_REGION_NAME = AA_core.secret.AWS_SES_REGION_NAME #(ex: us-east-2)
-AWS_SES_REGION_ENDPOINT = AA_core.secret.AWS_SES_REGION_ENDPOINT #(ex: email.us-east-2.amazonaws.com)
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = AA_core.secret.EMAIL_HOST
+EMAIL_PORT = AA_core.secret.EMAIL_PORT
+EMAIL_HOST_USER = AA_core.secret.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = AA_core.secret.EMAIL_HOST_PASSWORD

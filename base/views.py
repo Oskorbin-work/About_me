@@ -5,6 +5,7 @@ from django.utils.translation import get_language
 from django.views.generic.detail import DetailView
 from django.db.models import Avg
 from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings
 from django.http import HttpResponse
 # ---------------------------------------------
 # import models
@@ -99,7 +100,7 @@ def contacts(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            subject = "Website Inquiry"
+            subject = "[Website 'About me'] [Contact]"
             body = {
                 'first_name': form.cleaned_data['first_name'],
                 'last_name': form.cleaned_data['last_name'],
@@ -108,7 +109,7 @@ def contacts(request):
             }
             message = "\n".join('{} : {}'.format(key, value) for key, value in body.items())
             try:
-                send_mail(subject, message, 'polozyuk.ser.work@gmail.com', ['polozyuk.ser.work@gmail.com'])
+                send_mail(subject, message, settings.EMAIL_HOST_USER, ['polozyuk.ser.work@gmail.com'])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect("/"+get_language()+'/main_page/')
