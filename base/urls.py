@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('',  views.redirect_to_url_main_page, name=''),
     path('main_page/', views.main_page, name='main_page'),

@@ -1,23 +1,26 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.conf import settings
 
 
-class Destination(models.Model):
-    email = models.CharField(max_length=256)
-    name = models.CharField(max_length=256)
-    tag = models.CharField(max_length=256)
+class EmailRecipient(models.Model):
+    email = models.EmailField(null=True)
+    name = models.CharField(max_length=200)
+    user_owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.email + " (" + self.name+")"
 
 
-class TemplateEmail(models.Model):
-    # structure email get from https://erinwrightwriting.com/wp-content/uploads/2015/06/Basic-Email-Format.jpg
-    from_email = models.EmailField(null=True)
-    # Subject line
-    subject_line = models.CharField(max_length=256)
-    # Salutation
-    opening_message = models.CharField(max_length=256)
+class EmailTemplate(models.Model):
     # Message
     body_message = models.TextField()
-    # Closing
-    closing_message = models.CharField(max_length=256)
-    # Signature Block
-    signature_block = models.CharField(max_length=256)
+    name = models.CharField(max_length=200)
+    user_owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.name
+
+
+
 

@@ -86,18 +86,23 @@
                     <li>
                         {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link px-0 align-middle " href="{% url logout %}user/logout/"
+                                <a class="nav-link px-0 align-middle " href="{% url 'user_profile:logout' %}"
                                    id="Link_Logout_Base">
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link px-0 align-middle" id="Login_Welcome"
-                                   href="{% url profile %}user/profile/{{ user.username }}/">, {{ user.first_name }} {{ user.last_name }}
+                                   href="{% url 'user_profile:profile' user.username%}">, {{ user.first_name }} {{ user.last_name }}
                                 </a>
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link px-0 align-middle " href="{% url login %}user/login/"
+                                <a class="nav-link px-0 align-middle " href="{% url 'user_profile:register' %}"
+                                  id="Link_Register_Base">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link px-0 align-middle " href="{% url 'user_profile:login' %}"
                                    id="Link_Login_Base">
                                 </a>
                             </li>

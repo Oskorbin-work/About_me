@@ -25,7 +25,7 @@ urlpatterns = i18n_patterns(
     path('', include('base.urls')),
     path('blog/', include('blog.urls')),
     path('user/', include('user_profile.urls')),
-    path('projects/sharing_email/', include('project_1_sending_emails.urls')),
+    path('projects/sending_emails/', include('project_1_sending_emails.urls')),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

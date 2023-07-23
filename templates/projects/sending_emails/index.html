@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {{ Content_body.title }}
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="col">
+        <div id="content" name="content" class="main">
+            <div class="row justify-content-center">
+                <div class="col-11">
+                    <h1 class=" text-center">{{ content_data.title_page }}</h1>
+                    <hr class="mb-0">
+                    <div class="container py-4 px-4">
+                        <div class="row">
+                            <p>
+                                <b>
+                                    {{ content_data.idea }}:
+                                </b>
+                            </p>
+                            <p>
+                               {{ content_data.text_idea }}
+                            </p>
+                            <p>
+                                <b>
+                                    {{ content_data.description }}:
+                                </b>
+                            </p>
+                            <p>
+                                {{ content_data.text_description }}
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="mb-0">
+                    {% if user.is_authenticated %}
+                        <form method="post">
+                        {% csrf_token %}
+                        <!--{{ form|crispy }}-->
+                        <p class="mb-2 mt-2">{{ content_data.emails_to }} *</p>
+                        <div class="row align-items-center">
+                            {% if form.emails_to.field.choices.queryset.all|length %}
+                                <div class="col-11">
+                                    {{ form.emails_to }}
+                                </div>
+                                <div class="col-1">
+                                    <a href="{% url 'new_email_recipient' %}">
+                                        <img src="{% static "admin/img/icon-addlink.svg" %}" alt="add ">
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="text-info"><strong><i>{{ content_data.emails_to_nothing_1 }} <a
+                                        href="{% url 'new_email_recipient' %}"> {{ content_data.emails_to_nothing_2 }} </a></i></strong></div>
+                            {% endif %}
+                        </div>
+                        <p class="mb-2 mt-2">{{ content_data.subject }} *</p>
+                        <div class="row align-items-center">
+                            <div class="col-11">
+                                {{ form.subject }}
+                            </div>
+                        </div>
+                        <p class="mb-2 mt-2">{{ content_data.email_template }} *</p>
+                        <div class="row align-items-center">
+                            {% if form.template.field.choices.queryset.all|length %}
+                                <div class="col-11">
+                                    {{ form.template }}
+                                </div>
+                                <div class="col-1">
+                                    <a href="{% url 'new_email_template' %}">
+                                        <img src="{% static "admin/img/icon-addlink.svg" %}" alt="add ">
+                                    </a>
+                                </div>
+                            {% else %}
+                                <div class="text-info"><strong><i>{{ content_data.email_template_to_nothing_1 }} <a
+                                        href="{% url 'new_email_template' %}"> {{ content_data.email_template_to_nothing_2 }} </a></i></strong></div>
+                            {% endif %}
+
+                        </div>
+                        {% if form.emails_to.field.choices.queryset.all|length and form.template.field.choices.queryset.all|length %}
+                            <button class="btn btn-primary mt-4 mb-3" type="submit"
+                                    id="Button_Login">
+                                {{ content_data.button_send }}
+                            </button>
+                            {% else %}
+                            {{ content_data.email_to_and_template_to_nothing }}
+                        {% endif %}
+                    {% else %}
+                        {{ content_data.registration_noghing }}
+                    {% endif %}
+                    </form>
+                </div>
+            </div>
+            <sub class="text-secondary">
+                {{ content_data.info_technology }}
+            </sub>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    {{ Content_body.title }}
+{% endblock %}
+
+{% block link_css %}
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% endblock %}
+
+{% block content %}
+
+    {% load crispy_forms_tags %}
+
+    <div class="col">
+        <div id="content" name="content" class="main">
+            <div class="row justify-content-center">
+                <div class="col-11">
+                    <h1 class=" text-center"> {{ Content_body.title }}</h1>
+                    <hr class="mb-0">
+                    <div class="container path-to-main-subpage py-1 px-1">
+                        <a href="{% url 'projects_sending_emails' %}">
+                            <div class="fa fa-home">
+                            </div></a>
+                        >
+                        {{ content_data.menu }}
+                    </div>
+                    <!--Create a new email reception-->
+                    <div class="container py-5">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button class="btn btn-primary" id="Button_Register" type="submit">
+                                {{ content_data.button_add }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <sub class="text-secondary">
+                {{ content_data.info_technology }}
+            </sub>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block link_js %}
+    <script type="text/javascript" src="{% static "" %}{{ content_data }}"></script>
+{% endblock %}

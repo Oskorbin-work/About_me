@@ -1,11 +1,10 @@
 from django.contrib import admin
 
 
-from .models import Destination, TemplateEmail
+from .models import EmailRecipient, EmailTemplate
 
 
-
-admin.site.register(Destination)
-admin.site.register(TemplateEmail)
+admin.site.register(EmailRecipient)
+admin.site.register(EmailTemplate)
 
 # Register your models here.

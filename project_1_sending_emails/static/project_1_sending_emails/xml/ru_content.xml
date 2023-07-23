@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<data>
+    <title_page>Рассылка почты</title_page>
+    <idea>Идея</idea>
+    <text_idea>Автоматизировать отправку электронных писем</text_idea>
+    <description>Описание</description>
+    <text_description>Программа должна принимать список адресов и имен адресатов.
+        После составления шаблона письма в него подставляются имена получателей,
+        а затем письма автоматически рассылаются по указанным адресам
+    </text_description>
+    <emails_to>
+        Выберите адреса электронных почт
+    </emails_to>
+    <emails_to_nothing_1>
+        Добавьте адреса электренной почты по
+    </emails_to_nothing_1>
+    <emails_to_nothing_2>
+        ссылке
+    </emails_to_nothing_2>
+    <subject>
+        Напишите тему сообщения
+    </subject>
+    <email_template>
+        Выберите шаблон сообщения
+    </email_template>
+    <email_template_to_nothing_1>
+        Добавьте шаблоны сообщений по
+    </email_template_to_nothing_1>
+    <email_template_to_nothing_2>
+        ссылке
+    </email_template_to_nothing_2>
+    <button_send>
+        Отправить сообщения
+    </button_send>
+    <email_to_and_template_to_nothing>
+        Чтобы отправить сообщения, необходимо добавить адреса электронных почт и шаблон письма
+    </email_to_and_template_to_nothing>
+    <registration_noghing>
+        Необходимо зарегистрироваться или залогиниться, чтобы иметь доступ до проекта_1
+    </registration_noghing>
+    <info_technology>
+        Данная страничка написана с использованием XML как хранилище данных страницы
+    </info_technology>
+</data>
