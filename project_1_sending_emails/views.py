@@ -9,8 +9,8 @@ from django.contrib import messages
 from django.core.mail import send_mail, BadHeaderError
 # ---------------------------------------------
 # import models
-
 from base.models import Base, ContentBody
+from .models import MessageEmail
 # ---------------------------------------------
 # import forms
 from .forms import EmailForm, NewEmailRecipientForm, NewEmailTemplateForm
@@ -30,11 +30,17 @@ def index(request):
             subject = form.cleaned_data['subject']
             for recipient in form.cleaned_data['emails_to']:
                 message = form.cleaned_data['template'].body_message.replace("||Name||", recipient.name)
+                messages.info(request,
+                              MessageEmail.objects.filter(translations__name="Send messages!")[0].name)
                 try:
                     send_mail(subject, message, settings.EMAIL_HOST_USER, [recipient.email])
                 except BadHeaderError:
-                    return HttpResponse('Invalid header found.')
-            return redirect("/"+get_language()+'/main_page/')
+                    return HttpResponse(MessageEmail.objects.filter(translations__name=
+                                                                "Invalid header found."))
+        else:
+            messages.error(request, MessageEmail.objects.filter(translations__name=
+                                                                "Doesn't send messages!"))
+            return redirect("/"+get_language()+'/projects/sending_emails/')
     form = EmailForm(user=request.user)
     context = {
         'Base': base_entry,
@@ -54,10 +60,12 @@ def new_email_recipient(request):
         form = NewEmailRecipientForm(request.POST,user=request.user)
         if form.is_valid():
             email_recipient = form.save()
-            messages.success(request, "Good")
+            messages.info(request,
+                          MessageEmail.objects.filter(translations__name="Saved successfully!")[0].name)
             return redirect("/"+get_language()+'/projects/sending_emails/')
-        messages.error(request, "Bad")
-    form = NewEmailRecipientForm( user=request.user)
+        else:
+            messages.error(request, MessageEmail.objects.filter(translations__name="Saved unsuccessfully!")[0].name)
+    form = NewEmailRecipientForm(user=request.user)
     context = {
         "form": form,
         'Base': base_entry,
@@ -80,10 +88,12 @@ def new_email_template(request):
         form = NewEmailTemplateForm(request.POST, user=request.user)
         if form.is_valid():
             email_template = form.save()
-            messages.success(request, "Good")
+            messages.info(request,
+                          MessageEmail.objects.filter(translations__name="Saved successfully!")[0].name)
             return redirect("/"+get_language()+'/projects/sending_emails/')
-        messages.error(request, "Bad")
-    form = NewEmailTemplateForm( user=request.user)
+        else:
+            messages.error(request, MessageEmail.objects.filter(translations__name="Saved unsuccessfully!")[0].name)
+    form = NewEmailTemplateForm(user=request.user)
     context = {
         "form": form,
         'Base': base_entry,
@@ -96,8 +106,10 @@ def new_email_template(request):
     }
     return render(request=request, template_name="projects/sending_emails/create_email_template.html", context=context)
 
+
 def redirect_to_url_main_page(request):
     return redirect("/"+get_language()+'/main_page/')
+
 
 def parse(address):
     xmldoc = ET.parse(address)

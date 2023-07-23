@@ -65,8 +65,9 @@ class Education(TranslatableModel):
 
     class Meta:
         ordering = ('-learn_end',)
+
     def __str__(self):
-        return self.name+ " (" + self.degree + ")"
+        return self.name+" ("+self.degree+")"
 
 
 class GradeEducation(TranslatableModel):
@@ -76,7 +77,7 @@ class GradeEducation(TranslatableModel):
             MaxValueValidator(100),
             MinValueValidator(1),
         ],
-        blank = True,
+        blank=True,
     )
     education = models.ForeignKey(Education, on_delete=models.CASCADE, blank=True, null=True)
     translations = TranslatedFields(
@@ -132,6 +133,15 @@ class Skill(TranslatableModel):
 
     def get_type_choices(self):
         return [choice[0] for choice in self.TYPE_CHOICES]
+
+
+class MessageContact(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(max_length=400, blank=True,),
+    )
+
+    def __str__(self):
+        return self.name
 
 
 

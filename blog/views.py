@@ -1,16 +1,23 @@
-from .models import Post
-from base.models import Base
-from base.models import ContentBody
-from django.shortcuts import render, redirect
-from .forms import NewPostForm
+# ---------------------------------------------
+# import base django
+from django.shortcuts import  redirect
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.utils.translation import get_language
 # ---------------------------------------------
+# import models
+from .models import Post
+from base.models import Base
+from base.models import ContentBody
+# ---------------------------------------------
+# import forms
+from .forms import NewPostForm
+# ---------------------------------------------
 # import base python
 import xml.etree.ElementTree as ET
 # ---------------------------------------------
+
 
 class PostListView(ListView):
     model = Post
@@ -73,4 +80,8 @@ def parse(address):
     root = xmldoc.getroot()
     xml_dict = {child.tag: child.text for child in root}
     return xml_dict
+
+
+def redirect_to_url_blog(request):
+    return redirect("/"+get_language()+'/blog/post_list/')
 

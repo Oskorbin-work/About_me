@@ -14,7 +14,7 @@ class TagsPost(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField( max_length=80, blank=True, )
+    title = models.CharField(max_length=80, blank=True, )
     img_main = models.ImageField(upload_to='posts/', blank=True, max_length=500)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL,)
     body = models.TextField(blank=True,)

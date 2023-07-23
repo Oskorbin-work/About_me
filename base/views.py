@@ -6,6 +6,7 @@ from django.views.generic.detail import DetailView
 from django.db.models import Avg
 from django.core.mail import send_mail, BadHeaderError
 from django.conf import settings
+from django.contrib import messages
 from django.http import HttpResponse
 # ---------------------------------------------
 # import models
@@ -13,6 +14,7 @@ from .models import Base
 from .models import ContentBody
 from .models import Education, GradeEducation
 from .models import Skill, TypeSkills
+from .models import MessageContact
 # ---------------------------------------------
 # import forms
 from .forms import ContactForm
@@ -108,11 +110,18 @@ def contacts(request):
                 'message': form.cleaned_data['message'],
             }
             message = "\n".join('{} : {}'.format(key, value) for key, value in body.items())
+            messages.info(request,
+                          MessageContact.objects.filter(translations__name="Send message!")[0].name)
+
             try:
                 send_mail(subject, message, settings.EMAIL_HOST_USER, ['polozyuk.ser.work@gmail.com'])
             except BadHeaderError:
-                return HttpResponse('Invalid header found.')
+                return HttpResponse(MessageContact.objects.filter(translations__name=
+                                                                "Invalid header found."))
             return redirect("/"+get_language()+'/main_page/')
+    else:
+        messages.error(request, MessageContact.objects.filter(translations__name=
+                                                            "Doesn't send message!"))
     form = ContactForm()
     context = {
         'Base': base_entry,
@@ -134,3 +143,5 @@ def parse(address):
 
 def redirect_to_url_main_page(request):
     return redirect("/"+get_language()+'/main_page/')
+
+

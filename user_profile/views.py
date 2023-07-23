@@ -25,7 +25,8 @@ def register_request(request):
             login(request, user)
             messages.success(request, MessageUser.objects.filter(translations__name="Registration successful")[0].name)
             return redirect("/"+get_language()+'/main_page/')
-        messages.error(request, MessageUser.objects.filter(translations__name=
+        else:
+            messages.error(request, MessageUser.objects.filter(translations__name=
                                                            "Unsuccessful registration. Invalid information.")[0].name)
     form = NewUserForm()
     context = {
@@ -102,4 +103,9 @@ def profile(request, username):
         return render(request, 'user_profile/profile.html', context=context)
 
     return redirect("/"+get_language()+'/main_page/')
+
+
+def redirect_to_url_main_page(request):
+    return redirect("/"+get_language()+'/main_page/')
+
 

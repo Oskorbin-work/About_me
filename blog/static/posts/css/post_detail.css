@@ -40,7 +40,6 @@ a.post_list {
 }
 
 .post-content {
-    width: 900px !important;
     display: block;
     text-align: justify;
 }
@@ -60,7 +59,6 @@ a.post_list {
 }
 
 .post-date {
-    width: 950px !important;
     display: block;
     text-align: justify;
     font-size: 16px;

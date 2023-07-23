@@ -92,12 +92,12 @@ WSGI_APPLICATION = 'AA_core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'About_me',
-        'USER': 'learn_account',
-        'PASSWORD': 'Learn2023',
-        'HOST': '',
-        'PORT': '',
+        'ENGINE': AA_core.secret.DB_ENGINE,
+        'NAME': AA_core.secret.DB_NAME,
+        'USER': AA_core.secret.DB_USER,
+        'PASSWORD': AA_core.secret.DB_PASSWORD,
+        'HOST': AA_core.secret.DB_HOST,
+        'PORT': AA_core.secret.DB_PORT,
     }
 }
 
@@ -179,7 +179,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = AA_core.secret.EMAIL_BACKEND
 EMAIL_USE_TLS = True
 EMAIL_HOST = AA_core.secret.EMAIL_HOST
 EMAIL_PORT = AA_core.secret.EMAIL_PORT

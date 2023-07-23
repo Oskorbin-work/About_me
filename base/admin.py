@@ -3,6 +3,7 @@ from parler.admin import TranslatableAdmin
 
 from .models import Base, MenuLevOne, MenuLevTwo
 from .models import ContentBody, Education, GradeEducation
+from .models import MessageContact
 
 from .models import Skill, ProjectSkills, TypeSkills
 
@@ -23,5 +24,8 @@ admin.site.register(Skill, TranslatableAdmin)
 admin.site.register(ProjectSkills, TranslatableAdmin)
 admin.site.register(TypeSkills, TranslatableAdmin)
 
+#  For body page. One basedata to page "Contact"
+
+admin.site.register(MessageContact, TranslatableAdmin)
 
 

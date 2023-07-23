@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+from parler.models import TranslatableModel, TranslatedFields
 
 
 class EmailRecipient(models.Model):
@@ -20,6 +21,16 @@ class EmailTemplate(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class MessageEmail(TranslatableModel):
+    translations = TranslatedFields(
+        name=models.CharField(max_length=400, blank=True,),
+    )
+
+    def __str__(self):
+        return self.name
+
 
 
 
