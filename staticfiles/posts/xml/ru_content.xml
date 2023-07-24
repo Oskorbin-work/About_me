@@ -10,5 +10,7 @@
     <info_technology>
        Данная страничка написана с использованием XML как хранилище данных страницы
     </info_technology>
-
+    <not_post>
+        Тут нет постов(
+    </not_post>
 </data>

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<data>
+        <menu>
+        Create a new email template
+    </menu>
+    <tip>
+        You can write "||Name||" where you need to add recipient's name
+    </tip>
+    <button_add>
+        Add a new email template
+    </button_add>
+    <info_technology>
+        This page is written using XML as page data store
+    </info_technology>
+</data>

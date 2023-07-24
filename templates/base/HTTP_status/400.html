@@ -1,0 +1,15 @@
+{% extends 'base/HTTP_status/base_HTTP_STATUS.html' %}
+<!-- 400.html template -->
+
+{% block title %}400 Bad Request   {% endblock %}
+{% block emoji %}😕         {% endblock %}
+{% block article %}Bad Request         {% endblock %}
+{% block description %}It was sent to the server has invalid syntax {% endblock %}
+{% block tips %}
+    <p>Here are a few examples of when a 400 Bad Request error might occur::</p>
+    <ul style="list-style-type: none">
+    <li>The user’s cookie that is associated with the site is corrupt. Clearing the browser’s cache and cookies could solve this issue</li>
+    <li>Malformed request due to a faulty browser</li>
+    <li>Malformed request due to human error when manually forming HTTP requests</li>
+    </ul>
+{% endblock %}

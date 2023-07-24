@@ -129,7 +129,7 @@ LANGUAGE_CODE = 'en-us'
 LANGUAGES = (
     ('ru', _('Russia')),
     ('en', _('English')),
-    ('uk',_('Ukraine')),
+    ('uk', _('Ukraine')),
 )
 
 PARLER_LANGUAGES = {

@@ -1,0 +1,15 @@
+{% extends 'base/HTTP_status/base_HTTP_STATUS.html' %}
+<!-- 403.html template -->
+
+{% block title %}403 Forbidden   {% endblock %}
+{% block emoji %}😕         {% endblock %}
+{% block article %}Forbidden         {% endblock %}
+{% block description %}You made a valid request but the server is refusing to serve the request, due to a lack of permission to access the requested resource.         {% endblock %}
+{% block tips %}
+    <p>If you are encountering a 403 error unexpectedly, there are a few typical causes that are explained here:</p>
+    <ul style="list-style-type: none">
+        <li><b>File Permissions.</b>  The user that is running the web server process does not have sufficient permissions to read the file that is being accessed.</li>
+        <li><b>.htaccess</b> The .htaccess file can be used to deny access of certain resources to specific IP addresses or ranges, for example.</li>
+    <li><b>Index File Does Not Exist</b> If the user is trying to access a directory that does not have a default index file, and directory listings are not enabled, the web server will return a 403 Forbidden error. </li>
+    </ul>
+{% endblock %}

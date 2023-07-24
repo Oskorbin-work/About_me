@@ -1,0 +1,58 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%} {% endblock%}</title>
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'HTTP_STATUS/css/HTTP_STATUS.css' %}">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .emoji {
+            font-size: 8rem;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            font-size: 1.25rem;
+            padding: 10px 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <div class="emoji">{% block emoji %}         {% endblock %}</div>
+    <h1>Oops! {% block article %}         {% endblock %}</h1>
+    <p>{% block description %}         {% endblock %}</p>
+    {% block tips %}         {% endblock %}
+    <p><a class="btn btn-primary" href="/">Go back to Home</a></p>
+</div>
+</body>
+</html>

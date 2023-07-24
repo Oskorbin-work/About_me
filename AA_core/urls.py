@@ -31,3 +31,24 @@ urlpatterns = i18n_patterns(
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# ----------------------------------------------------------------------------------------------------------------------
+# HTTP STATUS
+
+# Bad Request
+handler400 = "base.views.custom_400"
+# Unauthorized
+handler401 = "base.views.custom_401"
+# Forbidden
+handler403 = "base.views.custom_403"
+# Not Found
+handler404 = 'base.views.custom_404'
+# Internal Server Error
+handler500 = "base.views.custom_500"
+# Internal Server Error
+handler502 = "base.views.custom_502"
+# Service Unavailable
+handler503 = "base.views.custom_503"
+# Gateway Timeout
+handler504 = "base.views.custom_504"
+# ----------------------------------------------------------------------------------------------------------------------

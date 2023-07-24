@@ -1,0 +1,44 @@
+<?xml version="1.0" ?>
+<data>
+     <title_page>Розсилання пошти</title_page>
+     <idea>Ідея</idea>
+     <text_idea>Автоматизувати надсилання електронних листів</text_idea>
+     <description>Опис</description>
+     <text_description>Програма повинна приймати список адрес та імен адресатів.
+         Після складання шаблону листа до нього підставляються імена одержувачів,
+         а потім повідомлення автоматично розсилаються за вказаними адресами
+     </text_description>
+     <emails_to>
+         Виберіть адреси електронної пошти
+     </emails_to>
+     <emails_to_nothing_1>
+         Додати адреси пошти за
+     </emails_to_nothing_1>
+     <emails_to_nothing_2>
+         посиланню
+     </emails_to_nothing_2>
+     <subject>
+         Напишіть тему повідомлення
+     </subject>
+     <email_template>
+         Виберіть шаблон повідомлення
+     </email_template>
+     <email_template_to_nothing_1>
+         Додайте шаблони повідомлень по
+     </email_template_to_nothing_1>
+     <email_template_to_nothing_2>
+         посиланню
+     </email_template_to_nothing_2>
+     <button_send>
+         Надіслати повідомлення
+     </button_send>
+     <email_to_and_template_to_nothing>
+         Щоб надіслати повідомлення, необхідно додати адреси електронної пошти та шаблон листа
+     </email_to_and_template_to_nothing>
+     <registration_noghing>
+         Необхідно зареєструватися або залогінитися, щоб мати доступ до проекту_1
+     </registration_noghing>
+     <info_technology>
+         Ця сторінка написана з використанням XML як сховище даних сторінки
+     </info_technology>
+</data>

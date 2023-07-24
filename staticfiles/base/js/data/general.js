@@ -7,6 +7,10 @@ const Link_Login_Base = document.getElementById("Link_Login_Base");
 if (Link_Login_Base) {
     Link_Login_Base.innerHTML = dict_base_content["Link_Login_Base"];
 }
+const Link_Register_Base = document.getElementById("Link_Register_Base");
+if (Link_Register_Base) {
+    Link_Register_Base.innerHTML = dict_base_content["Link_Register_Base"];
+}
 const Link_Logout_Base = document.getElementById("Link_Logout_Base");
 if (Link_Logout_Base){
     Link_Logout_Base.innerHTML = dict_base_content["Link_Logout_Base"];

@@ -1,0 +1,14 @@
+{% extends 'base/HTTP_status/base_HTTP_STATUS.html' %}
+<!-- 404.html template -->
+
+{% block title %}404 Page Not Found   {% endblock %}
+{% block emoji %}😕         {% endblock %}
+{% block article %}Page Not Found         {% endblock %}
+{% block description %}We couldn't find the page you were looking for.         {% endblock %}
+{% block tips %}
+    <p>You are unexpectedly receiving this error, here are some questions to ask while troubleshooting:</p>
+    <ul style="list-style-type: none">
+    <li>Did you type in the wrong URL?</li>
+    <li>Does the link that directed the user to your server resource have a typographical error in it?</li>
+    </ul>
+{% endblock %}

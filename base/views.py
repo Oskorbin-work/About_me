@@ -145,3 +145,42 @@ def redirect_to_url_main_page(request):
     return redirect("/"+get_language()+'/main_page/')
 
 
+# custom 400 view
+def custom_400(request, exception):
+    return render(request, 'base/HTTP_status/400.html', status=400)
+
+
+# custom 401 view
+def custom_401(request, exception):
+    return render(request, 'base/HTTP_status/401.html', status=401)
+
+
+# custom 403 view
+def custom_403(request, exception):
+    return render(request, 'base/HTTP_status/403.html', status=403)
+
+
+# custom 404 view
+def custom_404(request, exception):
+
+    return render(request, 'base/HTTP_status/404.html', status=404)
+
+
+# custom 500 view
+def custom_500(request):
+    return render(request, 'base/HTTP_status/500.html', status=500)
+
+
+# custom 501 view
+def custom_501(request):
+    return render(request, 'base/HTTP_status/501.html', status=501)
+
+
+# custom 503 view
+def custom_503(request):
+    return render(request, 'base/HTTP_status/503.html', status=503)
+
+
+# custom 504 view
+def custom_504(request):
+    return render(request, 'base/HTTP_status/504.html', status=504)

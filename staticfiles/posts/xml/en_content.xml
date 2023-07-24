@@ -10,5 +10,7 @@
     <info_technology>
         This page was written using XML as page data store
     </info_technology>
-
+    <not_post>
+        There aren't posts(
+    </not_post>
 </data>

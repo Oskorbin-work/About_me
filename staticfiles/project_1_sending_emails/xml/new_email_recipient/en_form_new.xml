@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<data>
+    <menu>
+        Create a new email reception
+    </menu>
+    <button_add>
+        Add a new email reception
+    </button_add>
+    <info_technology>
+        This page is written using XML as page data store
+    </info_technology>
+</data>
