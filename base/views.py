@@ -119,8 +119,8 @@ def contacts(request):
                 return HttpResponse(MessageContact.objects.filter(translations__name=
                                                                 "Invalid header found."))
             return redirect("/"+get_language()+'/main_page/')
-    else:
-        messages.error(request, MessageContact.objects.filter(translations__name=
+        else:
+            messages.error(request, MessageContact.objects.filter(translations__name=
                                                             "Doesn't send message!"))
     form = ContactForm()
     context = {
