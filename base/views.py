@@ -2,6 +2,7 @@
 # import base django
 from django.shortcuts import render, redirect
 from django.utils.translation import get_language
+from django.utils import translation
 from django.views.generic.detail import DetailView
 from django.db.models import Avg
 from django.core.mail import send_mail, BadHeaderError
@@ -45,7 +46,7 @@ def about_me_education(request):
         "Content_body": content_body,
         "educations": education_base,
         # request.path[1:3] this is current language. Give from url.
-        'content_data': parse(f'base/static/education/xml/{request.path[1:3]}_content.xml'),
+        'content_data': parse(settings.STATIC_ROOT + f'/education/xml/{request.path[1:3]}_content.xml'),
         'get_last_url': request.path[4:-1],
         'base_data': f'base/js/data/{request.path[1:3]}.js',
     }
@@ -70,7 +71,7 @@ class EducationDetail(DetailView):
             "Content_body": content_body,
             "grades": grades,
             "grades_average": grades_average,
-            'content_data': parse(f'base/static/education/xml/grades/{self.request.path[1:3]}_grades.xml'),
+            'content_data': parse(settings.STATIC_ROOT + f'/education/xml/grades/{self.request.path[1:3]}_grades.xml'),
             "get_last_url": self.request.path[4:-1],
             'base_data': f'base/js/data/{self.request.path[1:3]}.js',
         }

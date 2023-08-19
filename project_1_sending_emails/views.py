@@ -45,7 +45,7 @@ def index(request):
     context = {
         'Base': base_entry,
         "Content_body": content_body,
-        'content_data': parse(f'project_1_sending_emails/static/project_1_sending_emails/xml/{request.path[1:3]}_content.xml'),
+        'content_data': parse(settings.STATIC_ROOT+f'/project_1_sending_emails/xml/{request.path[1:3]}_content.xml'),
         'get_last_url': request.path[4:-1],
         'base_data': f'base/js/data/{request.path[1:3]}.js',
         'form': form
@@ -71,7 +71,7 @@ def new_email_recipient(request):
         'Base': base_entry,
         "Content_body": content_body,
         'content_data': parse(
-            f'project_1_sending_emails/static/project_1_sending_emails/xml/new_email_recipient/{request.path[1:3]}_form_new.xml'),
+            settings.STATIC_ROOT+f'/project_1_sending_emails/xml/new_email_recipient/{request.path[1:3]}_form_new.xml'),
         'get_last_url': request.path[4:-1],
         'base_data': f'base/js/data/{request.path[1:3]}.js'
 
@@ -99,7 +99,7 @@ def new_email_template(request):
         'Base': base_entry,
         "Content_body": content_body,
         'content_data': parse(
-            f'project_1_sending_emails/static/project_1_sending_emails/xml/new_email_template/{request.path[1:3]}_form_new.xml'),
+            settings.STATIC_ROOT+f'/project_1_sending_emails/xml/new_email_template/{request.path[1:3]}_form_new.xml'),
 
         'get_last_url': request.path[4:-1],
         'base_data': f'base/js/data/{request.path[1:3]}.js',

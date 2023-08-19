@@ -27,8 +27,9 @@ SECRET_KEY = AA_core.secret.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -127,9 +128,9 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = (
-    ('ru', _('Russia')),
     ('en', _('English')),
     ('uk', _('Ukraine')),
+    ('ru', _('Russia')),
 )
 
 PARLER_LANGUAGES = {

@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.utils.translation import get_language
+from django.conf import settings
 # ---------------------------------------------
 # import models
 from .models import Post
@@ -31,7 +32,7 @@ class PostListView(ListView):
         ctx['Base'] = base_entry
         ctx['Content_body'] = content_body
         ctx['get_last_url'] = self.request.path[4:-1]
-        ctx['blog_data'] = parse(f'blog/static/posts/xml/{self.request.path[1:3]}_content.xml')
+        ctx['blog_data'] = parse(settings.STATIC_ROOT+f'/posts/xml/{self.request.path[1:3]}_content.xml')
         ctx['base_data'] = f'base/js/data/{self.request.path[1:3]}.js'
         return ctx
 
@@ -46,8 +47,8 @@ class PostDetailView(DetailView):
         ctx['Base'] = base_entry
         ctx['Content_body'] = content_body
         ctx['get_last_url'] = self.request.path[4:-1]
-        ctx['post_data'] = parse(f'blog/static/posts/xml/post/{self.request.path[1:3]}_post.xml')
-        ctx['blog_data'] = parse(f'blog/static/posts/xml/{self.request.path[1:3]}_content.xml')
+        ctx['post_data'] = parse(settings.STATIC_ROOT+f'/posts/xml/post/{self.request.path[1:3]}_post.xml')
+        ctx['blog_data'] = parse(settings.STATIC_ROOT+f'/posts/xml/{self.request.path[1:3]}_content.xml')
         ctx['base_data'] = f'base/js/data/{self.request.path[1:3]}.js'
         return ctx
 
